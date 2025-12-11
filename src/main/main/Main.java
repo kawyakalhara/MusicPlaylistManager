@@ -9,10 +9,9 @@ import main.ui.MainWindow;
 
     public class Main {
         public static void main(String[] args) {
-            // 1. Create PlaylistManager
+
             PlaylistManager manager = new PlaylistManager();
 
-            // 2. Create songs
             Song s1 = new Song("Shape of You", "Ed Sheeran", "3:53");
             Song s2 = new Song("Blinding Lights", "The Weeknd", "3:20");
             Song s3 = new Song("Bad Habits", "Ed Sheeran", "3:51");
@@ -24,7 +23,6 @@ import main.ui.MainWindow;
             Song s9 = new Song("Stay", "The Kid LAROI", "2:21");
             Song s10 = new Song("Shivers", "Ed Sheeran", "3:27");
 
-            // 3. Create playlists
             Playlist chillVibes = new Playlist("Chill Vibes");
             chillVibes.addSong(s1);
             chillVibes.addSong(s4);
@@ -41,7 +39,6 @@ import main.ui.MainWindow;
             sadSongs.addSong(s7);
             sadSongs.addSong(s8);
 
-            // 4. Add playlists to manager
             manager.createPlaylist(chillVibes.getName());
             manager.getPlaylist(chillVibes.getName()).getSongs().addAll(chillVibes.getSongs());
 
@@ -51,7 +48,6 @@ import main.ui.MainWindow;
             manager.createPlaylist(sadSongs.getName());
             manager.getPlaylist(sadSongs.getName()).getSongs().addAll(sadSongs.getSongs());
 
-            // 5. Test print playlists and songs
             System.out.println("=== Preloaded Playlists ===");
             for (String playlistName : manager.getAllPlaylistNames()) {
                 System.out.println("Playlist: " + playlistName);

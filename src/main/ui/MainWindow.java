@@ -37,7 +37,7 @@ public class MainWindow extends JFrame {
         JPanel panel = new JPanel(new BorderLayout());
         add(panel);
 
-        // Left panel: Playlists
+
         playlistListModel = new DefaultListModel<>();
         refreshPlaylistList();
         playlistList = new JList<>(playlistListModel);
@@ -46,12 +46,12 @@ public class MainWindow extends JFrame {
 
         panel.add(new JScrollPane(playlistList), BorderLayout.WEST);
 
-        // Center panel: Songs
+
         songListModel = new DefaultListModel<>();
         songList = new JList<>(songListModel);
         panel.add(new JScrollPane(songList), BorderLayout.CENTER);
 
-        // Bottom panel: Buttons
+
         JPanel buttonPanel = new JPanel();
         addSongButton = new JButton("Add Song");
         removeSongButton = new JButton("Remove Song");
@@ -67,7 +67,6 @@ public class MainWindow extends JFrame {
 
         panel.add(buttonPanel, BorderLayout.SOUTH);
 
-        // Button actions
         addSongButton.addActionListener(e -> addSong());
         removeSongButton.addActionListener(e -> removeSong());
         playButton.addActionListener(e -> playPlaylist());
@@ -75,7 +74,6 @@ public class MainWindow extends JFrame {
         openPlaylistButton.addActionListener(e -> openPlaylistView());
     }
 
-    // Refresh playlist list from manager
     private void refreshPlaylistList() {
         if (playlistListModel != null) {
             playlistListModel.clear();
@@ -145,11 +143,9 @@ public class MainWindow extends JFrame {
         CreatePlaylistDialog dialog = new CreatePlaylistDialog(this, manager);
         dialog.launch();
 
-        // Refresh playlist list after creating new playlist
         refreshPlaylistList();
     }
 
-    // Launch window
     public static void launch(PlaylistManager manager) {
         SwingUtilities.invokeLater(() -> {
             MainWindow window = new MainWindow(manager);

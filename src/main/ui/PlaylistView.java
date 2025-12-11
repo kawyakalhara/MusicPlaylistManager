@@ -47,7 +47,6 @@ import java.awt.*;
 
             add(buttonPanel, BorderLayout.SOUTH);
 
-            // Button actions
             playButton.addActionListener(e -> playSequential());
             shuffleButton.addActionListener(e -> playShuffled());
         }
@@ -68,7 +67,6 @@ import java.awt.*;
             }
         }
 
-        // Launch this view
         public void launch() {
             SwingUtilities.invokeLater(() -> setVisible(true));
         }
